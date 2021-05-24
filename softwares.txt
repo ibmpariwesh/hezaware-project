@@ -1,0 +1,10 @@
+Jenkins
+Docker Desktop
+maven
+JDK 8 
+node.Js
+Jmeter
+Gatling
+STS
+gitClient
+VSCode
