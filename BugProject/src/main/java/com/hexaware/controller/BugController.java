@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hexaware.entity.BugRequest;
 import com.hexaware.service.BugService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @CrossOrigin
 public class BugController {
@@ -29,6 +31,7 @@ public class BugController {
 		System.out.println("get all bugs called");
 	}
 	@RequestMapping(method = RequestMethod.POST, value = "/bug")
+	@ApiOperation(consumes = "application/json", value = "create Bug")
 	public void createNewBug(@Valid @RequestBody BugRequest bugRequest) {
 		bugService.create(bugRequest);
 	}
