@@ -13,3 +13,4 @@ export class BugformComponent implements OnInit {
   }
 
 }
+
