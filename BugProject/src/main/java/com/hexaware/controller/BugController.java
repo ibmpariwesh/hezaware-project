@@ -32,7 +32,7 @@ public class BugController {
 	}
 	@RequestMapping(method = RequestMethod.POST, value = "/bug")
 	@ApiOperation(consumes = "application/json", value = "create Bug")
-	public void createNewBug(@Valid @RequestBody BugRequest bugRequest) {
+	public void createNewBug(@Valid @RequestBody BugRequest bugRequest) throws Exception {
 		bugService.create(bugRequest);
 	}
 	@RequestMapping(method = RequestMethod.PUT, value = "/bug/{id}")
