@@ -6,21 +6,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class BugRequest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
+	@NotNull
+	@NotBlank(message = "Email cannot be Blank.")
 	private String emailAddress;
 	private String owner;
+	@NotNull
 	private String priority;
-	private String status;
-	private String ownerProject;
+	private STATUS status;
+	private String ownerProject;//TODO need Project as an entity ??
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date createdDate;
+	private Date createdDate = new Date();
 	private Date completionDate;
 	private String description;
 	private boolean attachedfiles;
@@ -57,11 +62,11 @@ public class BugRequest {
 		this.priority = priority;
 	}
 
-	public String getStatus() {
+	public STATUS getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(STATUS status) {
 		this.status = status;
 	}
 

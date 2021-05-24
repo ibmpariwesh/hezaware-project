@@ -1,5 +1,7 @@
 package com.hexaware.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +27,7 @@ public class BugController {
 		System.out.println("get all bugs called");
 	}
 	@RequestMapping(method = RequestMethod.POST, value = "/bug")
-	public void createNewBug(@RequestBody BugRequest bugRequest) {
+	public void createNewBug(@Valid @RequestBody BugRequest bugRequest) {
 		bugService.create(bugRequest);
 	}
 	@RequestMapping(method = RequestMethod.PUT, value = "/bug/{id}")
