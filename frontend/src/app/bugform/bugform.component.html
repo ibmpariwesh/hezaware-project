@@ -1,4 +1,6 @@
 <div>
-    <input placeholder="description">
-    <button>Save</button>
+    <input placeholder="description" [(ngModel)]='bug.description'>
+    <input placeholder="Email" [(ngModel)]='bug.emailAddress'>
+    
+    <button (click)='save()'>Save</button>
 </div>

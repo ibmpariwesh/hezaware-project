@@ -20,7 +20,7 @@ public class BugRequest {
 	@NotBlank(message = "Email cannot be Blank.")
 	private String emailAddress;
 	private String owner;
-	@NotNull
+//	@NotNull
 	private String priority;
 	private STATUS status;
 	private String ownerProject;//TODO need Project as an entity ??

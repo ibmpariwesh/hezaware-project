@@ -3,6 +3,7 @@ package com.hexaware.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import com.hexaware.entity.BugRequest;
 import com.hexaware.service.BugService;
 
 @RestController
+@CrossOrigin
 public class BugController {
 	@Autowired
 	BugService bugService;
