@@ -37,11 +37,6 @@ public class BugController {
 	}
 	@RequestMapping(method = RequestMethod.PUT, value = "/bug/{id}")
 	public void updateBug(@RequestBody BugRequest bugRequest, @PathVariable Long id) {
-		System.out.println("update bug called");
-		System.out.println(bugRequest.toString());
-	}
-	@RequestMapping(method = RequestMethod.DELETE, value = "/bug/{id}")
-	public void deleteBug(@PathVariable Long id) {
-		System.out.println("update bug called");
+
 	}
 }

@@ -1,0 +1,5 @@
+spring:
+  cloud:
+    config:
+      discovery:        service-id: CONFIG-SERVER
+  profiles:    active:    - dev
