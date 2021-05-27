@@ -1,7 +1,10 @@
 package com.hexaware.file;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +31,8 @@ public class FileController {
 	@GetMapping("/download/{filename}")
 	private ResponseEntity<Resource> downloadFile(@PathVariable("filename") String filename) {
 		Resource resource = fileStorageService.loadFile(filename);
-		return ResponseEntity.ok().body(resource);
+		return ResponseEntity.ok().contentType(MediaType.parseMediaType("application/octet-stream"))
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename\""+
+						resource.getFilename()+"\"").body(resource);
 	}
 }
