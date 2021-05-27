@@ -17,7 +17,7 @@ public class ResponseFilter implements Filter {
 	public void doFilter(ServletRequest arg0, ServletResponse response, FilterChain arg2)
 			throws IOException, ServletException {
 		HttpServletResponse response2 = (HttpServletResponse) response;
-		response2.addHeader("myhexware-header", "blah");
+		response2.addHeader("myhexaware-header", "blah");
 		arg2.doFilter(arg0, response);
 	}
 
