@@ -4,6 +4,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.hexaware.entity.BugRequest;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -17,12 +18,15 @@ public class BugService {
 	EmailClient emailClient;
 	@Transactional(rollbackOn = Exception.class, dontRollbackOn = { ArithmeticException.class,
 			IllegalArgumentException.class })
-//	@HystrixCommand(fallbackMethod = "fallback1")
+	@HystrixCommand(fallbackMethod = "fallback1")
 	public void create(BugRequest bugRequest) throws Exception {
 		System.out.println(bugRequest);
 //		childMethod(bugRequest);
 		bugRepository.save(bugRequest);
-//		emailClient.sendEmail(bugRequest);
+		if(StringUtils.isEmpty(bugRequest.getEmailAddress())){
+			throw new IllegalArgumentException("test");
+		}
+		emailClient.sendEmail(bugRequest);
 //		throw new Exception();
 	}
 	
