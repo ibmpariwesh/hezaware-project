@@ -7,6 +7,7 @@ export default class BugService{
     constructor(private http: HttpClient){
         
     }
+    
     sendSaveRequest(bug:Bug){
        return this.http.post(BASE_URL, bug,{
             headers:{
